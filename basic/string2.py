@@ -38,12 +38,14 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 
-"""def not_bad(s):
-  new_string = ""
+
+def not_bad(s):
+  """new_string = ""
   if s.find("not") < s.find("bad"):
     new_string = s.replace("good")
-  return new_string
-"""
+  return new_string"""
+  pass
+
 
 # F. front_back
 # Consider dividing a string into two halves.
@@ -52,24 +54,31 @@ def verbing(s):
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
-  # make a helper function
+
+# make a helper function
+
+
 def half_length(string):
-  breakpoint()
-  return int(len(string)/2)
+  if len(string) % 2 == 0:
+    return int(len(string) / 2)
+  else:
+    return int(len(string) / 2) + 1
+
 
 def slice_front(string):
   return string[:half_length(string)]
+
 
 def slice_back(string):
   return string[half_length(string):]
 
 
 def front_back(a, b):
-  a-front = slice_front(a)
-  a-back = slice_back(a)
-  b-front = slice_front(b)
-  b-back = slice_back(b)
-  return a-front + b-front + a-back + b-back
+  a_front = slice_front(a)
+  a_back = slice_back(a)
+  b_front = slice_front(b)
+  b_back = slice_back(b)
+  return a_front + b_front + a_back + b_back
 
 
 # Simple provided test() function used in main() to print
