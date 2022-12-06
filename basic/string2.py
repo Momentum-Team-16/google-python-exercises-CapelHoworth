@@ -15,9 +15,18 @@
 # add 'ly' instead.
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
+MY_CONSTANT = "This is the thing I want to be available everywhere"
+# This is how we do global scope in Python. Available anywhere in the program
+# Convention to write constants in ALL CAPS
+
+
 def verbing(s):
-  # +++your code here+++
-  return
+  if len(s) < 3:
+    return s
+  elif s.endswith("ing"):
+    return s + "ly"
+  else:
+     return s + "ing"
 
 
 # E. not_bad
@@ -28,10 +37,13 @@ def verbing(s):
 # Return the resulting string.
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
-def not_bad(s):
-  # +++your code here+++
-  return
 
+"""def not_bad(s):
+  new_string = ""
+  if s.find("not") < s.find("bad"):
+    new_string = s.replace("good")
+  return new_string
+"""
 
 # F. front_back
 # Consider dividing a string into two halves.
@@ -40,9 +52,24 @@ def not_bad(s):
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
+  # make a helper function
+def half_length(string):
+  breakpoint()
+  return int(len(string)/2)
+
+def slice_front(string):
+  return string[:half_length(string)]
+
+def slice_back(string):
+  return string[half_length(string):]
+
+
 def front_back(a, b):
-  # +++your code here+++
-  return
+  a-front = slice_front(a)
+  a-back = slice_back(a)
+  b-front = slice_front(b)
+  b-back = slice_back(b)
+  return a-front + b-front + a-back + b-back
 
 
 # Simple provided test() function used in main() to print
@@ -52,29 +79,30 @@ def test(got, expected):
     prefix = ' OK '
   else:
     prefix = '  X '
-  print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
+  print('%s got: %s expected: %s' % (prefix, repr(got), repr(expected)))
 
 
 # main() calls the above functions with interesting inputs,
 # using the above test() to check if the result is correct or not.
 def main():
-  print 'verbing'
+  print('verbing')
   test(verbing('hail'), 'hailing')
-  test(verbing('swiming'), 'swimingly')
+  test(verbing('swimming'), 'swimmingly')
   test(verbing('do'), 'do')
 
   print
-  print 'not_bad'
+  print('not_bad')
   test(not_bad('This movie is not so bad'), 'This movie is good')
   test(not_bad('This dinner is not that bad!'), 'This dinner is good!')
   test(not_bad('This tea is not hot'), 'This tea is not hot')
   test(not_bad("It's bad yet not"), "It's bad yet not")
 
   print
-  print 'front_back'
+  print('front_back')
   test(front_back('abcd', 'xy'), 'abxcdy')
   test(front_back('abcde', 'xyz'), 'abcxydez')
   test(front_back('Kitten', 'Donut'), 'KitDontenut')
+
 
 if __name__ == '__main__':
   main()
