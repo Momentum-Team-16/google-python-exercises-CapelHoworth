@@ -12,6 +12,11 @@
 # all adjacent == elements have been reduced to a single element,
 # so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
 # modify the passed in list.
+
+
+import time
+
+
 def remove_adjacent(nums):
   nums_copy = nums[:]
   num_index = 0
@@ -22,15 +27,18 @@ def remove_adjacent(nums):
     else:
       num_index += 1
   return nums_copy
-
+  
 
 # E. Given two lists sorted in increasing order, create and return a merged
 # list of all the elements in a sorted order. You may modify the passed in lists.
 # Ideally, the solution should work in "linear" time, making a single
 # pass of both lists.
 def linear_merge(list1, list2):
+  start_time = time.time()
   sorted_list = list1 + list2
   sorted_list.sort()
+  end_time = time.time()
+  print(end_time - start_time)
   return sorted_list
 
 # Note: the solution above is kind of cute, but unforunately list.pop(0)
